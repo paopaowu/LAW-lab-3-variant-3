@@ -19,17 +19,20 @@ def cat(sc,p1,p2):
     elif sc=="r":
         f1 = open(p1, "r")
         print(f1.read())
-        f1.close()
 
+        f1.close()
+def stringToInt(s):
+    new=int(s)
+    print(type(new))
 def main():
-    for a in sys.argv:
-        print(a)
     if sys.argv[1]=="-v":
         v()
     elif sys.argv[1]=="-p":
         path(sys.argv[2])
     elif sys.argv[1]=="-c":
         cat(sys.argv[2],sys.argv[3],sys.argv[4])
+    elif sys.argv[1]=="-s":
+        stringToInt(sys.argv[2])
 
 if __name__ == '__main__':
     main()
