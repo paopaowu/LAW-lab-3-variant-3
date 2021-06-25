@@ -2,19 +2,24 @@ import sys
 import os
 
 def v():
-    print(sys.version)
+    t=sys.version
+    print(t)
+    return t
 def decoratorForPath(func,com):
     def wrapper():
         if len(com)==1:
             print("The command requires at least one parameter!")
+            return "The command requires at least one parameter!"
         else :
             func(com[1:])
     return wrapper
 
 def path(list):
+    list2=[]
     for s in list:
         print(os.getcwd()+"\\"+s)
-
+        list2.append(os.getcwd()+"\\"+s)
+    return list2
 def decoratorForCat(func,sc,args):
     def wrapper():
         if sc not in ["w","c","r"]:
@@ -36,8 +41,10 @@ def cat(sc,args):
         f2.close()
     elif sc=="r":
         f1 = open(args[0], "r")
-        print(f1.read())
+        t=f1.read()
+        print(t)
         f1.close()
+        return t
 
 def decoratorForStringToInt(func,s):
     def wrapper():
@@ -52,18 +59,21 @@ def decoratorForStringToInt(func,s):
 def stringToInt(s):
     new=int(s)
     print(type(new))
+    return new
 def help():
-    print("command:[-v] [-h] [-p] [-c w|r|c] [-s]")
-    print("sub-commands:")
-    print("\t\tcat w: Write data to file \n")
-    print("\t\tcat r: Read data from  file \n")
-    print("\t\tcat c: Copy file 1 data to file 2 \n")
-    print("position arguments:")
-    print("\t\t-p: Print the absolute path of the file  \n")
-    print("named arguments:")
-    print("\t\t-v: Print system version information \n")
-    print("\t\t-s: Converts a string to a number \n")
-    print("\t\t-h: Print method information \n")
+    s="command:[-v] [-h] [-p] [-c w|r|c] [-s]\n"
+    s+="sub-commands:\n"
+    s +="\t\t-c w: Write data to file \n"
+    s +="\t\t-c r: Read data from  file \n"
+    s +="\t\t-c c: Copy file 1 data to file 2 \n"
+    s +="position arguments:\n"
+    s +="\t\t-p: Print the absolute path of the file  \n"
+    s +="named arguments:\n"
+    s +="\t\t-v: Print system version information \n"
+    s +="\t\t-s: Converts a string to a number \n"
+    s +="\t\t-h: Print method information \n"
+    print(s)
+    return(s)
 
 def decoratorForMain(func):
     def wrapper():
