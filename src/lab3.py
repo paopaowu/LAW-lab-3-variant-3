@@ -52,16 +52,29 @@ def decoratorForStringToInt(func,s):
 def stringToInt(s):
     new=int(s)
     print(type(new))
+def help():
+    print("command:[-v] [-h] [-p] [-c w|r|c] [-s]")
+    print("sub-commands:")
+    print("\t\tcat w: Write data to file \n")
+    print("\t\tcat r: Read data from  file \n")
+    print("\t\tcat c: Copy file 1 data to file 2 \n")
+    print("position arguments:")
+    print("\t\t-p: Print the absolute path of the file  \n")
+    print("named arguments:")
+    print("\t\t-v: Print system version information \n")
+    print("\t\t-s: Converts a string to a number \n")
+    print("\t\t-h: Print method information \n")
 
 def decoratorForMain(func):
     def wrapper():
         global com
         com=sys.argv[1:]
-        if com[0] not in ["-v","-p","-c","-s"]:
+        if com[0] not in ["-v","-p","-c","-s","-h"]:
             print(com[0]+" is not a valid command!")
         else:
             func()
     return wrapper
+
 
 def main():
     global com
@@ -72,7 +85,9 @@ def main():
     elif com[0]=="-c":
         decoratorForCat(cat,com[1],com[2:])()
     elif com[0]=="-s":
-        decoratorForStringToInt(stringToInt,com[1])
+        decoratorForStringToInt(stringToInt,com[1])()
+    elif com[0]=="-h":
+        help()
 com=[]
 if __name__ == '__main__':
     decoratorForMain(main)()
