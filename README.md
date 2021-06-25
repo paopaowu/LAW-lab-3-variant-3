@@ -1,4 +1,4 @@
-**title:** Basic Model of Computational
+**title:** Computational Process Management
 
 **group name:** LAW
 
@@ -6,21 +6,29 @@
 
 **laboratory work number:**  2
 
-**variant description:**  Lambda-calculus
+**variant description:** building a CLI by decorators
 
-**contribution summary for each group member :** Wu Zhengbo  design and develop four categories. Lu Ziheng design and develop Calculation function.
+**contribution summary for each group member :** Wu Zhengbo  design and develop cli. Lu Ziheng design and develop test.
 
 **synopsis:**
 
 ​	We have implemented the following functions：
 
-​	1.four categories's FV() ,BV(),substitution(),alpha(),beta(),eta().
+​	cat():
 
-​	2.getNumber(),suc(),isZero(),plus(),mult(),pred(),factorial().
+​                -c w: Write data to file
+​                -c r: Read data from  file
+​                -c c: Copy file 1 data to file 2
+​	path():Print the absolute path of the file
+​	v(): Print system version information
+​    stringToInt(): Converts a string to a number
+​    help(): Print method information
 
-**work demonstration:** python test.py 
+​    
 
-**conclusion:** We implement basic model of computational. In this experiment, We learned about Lambda-calculus and verified them with Python.
+**work demonstration:** python lab3_test.py 
+
+**conclusion:**  In this experiment, We learned about how to realize cli by Python decorator.
 
 ​	
 
